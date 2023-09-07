@@ -25,33 +25,34 @@ public class SpringDataMongoDbApplication {
 		TimeZone.setDefault(TimeZone.getTimeZone("Africa/Lagos"));
 		System.out.println(LocalDateTime.now());
 	}
-
-	@Bean
-	CommandLineRunner runner(StudentRepository repository){
-		return args -> {
-			//usingTemplateAndQueries(repository, mongoTemplate);
-			Address address = new Address("UK", "London", "PK5");
-			String email = "adeoyeope@gmail.com";
-			Student student = new Student(
-					"Opeyemi",
-					"Adeoye",
-					email,
-					Gender.MALE,
-					address,
-					List.of("Computer Science", "English", "Java MongoDB"),
-					BigDecimal.TEN,
-					LocalDateTime.now()
-			);
-			repository.findStudentByEmail("adeoyeope@gmail.com").ifPresentOrElse(
-					std -> {
-						System.out.println(std + " already exists");
-					}, () -> {
-						System.out.println("Inserting student " + student);
-						repository.insert(student);
-					}
-			);
-		};
-	}
+//
+//	@Bean
+//	CommandLineRunner runner(StudentRepository repository){
+//		return args -> {
+//			//usingTemplateAndQueries(repository, mongoTemplate);
+//			Address address = new Address("UK", "London", "PK5");
+//			String email = "adeoyeope@gmail.com";
+//			Student student = new Student(
+//					"Opeyemi",
+//					"Adeoye",
+//					email,
+//					Gender.MALE,
+//					address,
+//					List.of("Computer Science", "English", "Java MongoDB"),
+//					BigDecimal.TEN,
+//					LocalDateTime.now()
+//			);
+//			repository.findStudentByEmail("adeoyeope@gmail.com").ifPresentOrElse(
+//					std -> {
+//						System.out.println(std + " already exists");
+//					}, () -> {
+//						System.out.println("Inserting student " + student);
+//						repository.insert(student);
+//					}
+//			);
+//		};
+//
+//	}
 
 	private Student createStudents(){
 		Address address = new Address("UK", "London", "PK5");
