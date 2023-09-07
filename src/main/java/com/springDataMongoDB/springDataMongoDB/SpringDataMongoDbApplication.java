@@ -27,8 +27,7 @@ public class SpringDataMongoDbApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(StudentRepository repository,
-							 MongoTemplate mongoTemplate){
+	CommandLineRunner runner(StudentRepository repository){
 		return args -> {
 			//usingTemplateAndQueries(repository, mongoTemplate);
 			Address address = new Address("UK", "London", "PK5");
